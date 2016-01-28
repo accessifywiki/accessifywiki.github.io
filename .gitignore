@@ -1,0 +1,22 @@
+# .gitignore
+
+_site
+.sass-cache
+
+/node_modules
+/package.json
+
+.DS_Store
+*BAK*
+#*-0*
+
+_bin/fixes-json.php
+_bin/search-indexer.php
+_bin/search-indexer.js
+_layouts/fix-json.json
+_pages/search-index-0.json
+_plugins/multipost.rb
+_sass/_custom.scss
+
+
+#End.

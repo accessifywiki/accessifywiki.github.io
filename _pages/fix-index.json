@@ -1,0 +1,37 @@
+---
+layout: null
+permalink: /fix/index.json
+x-was-permalink: /search-index.json
+x-author: "@nfreear"
+---
+{
+  "--": "auto-generated",
+  "title": {{ site.title | strip_html | json }},
+  "link": {{ site.url | json }},
+  "author": {{ site.x-author-url | json }},
+  "time": "{{ site.time }}",
+  "fix_url": "/fix/:ID.html#fixes=%23fix-api-json&styles=%23fix-api-css",
+  "fix_url_pattern": ":ID",
+  "fix_selectors": {
+    "fixes":  "#fix-api-json",
+    "styles": "#fix-api-css"
+  },
+  "fix_index": {
+{% comment %}
+  "search_index": {
+{% endcomment %}
+{% for fix in site.fixes %}
+  {% for pattern in fix.x-aw-config.include %}
+    {{ pattern | json }}: "{{ fix.path | replace: site.source, '' | replace: '/_fixes/', '' | replace: '.md', '' }}",
+  {% endfor %}
+{% endfor %}
+
+{% comment %}
+{% for fix in site.fixes %}
+    "{{ fix.path | replace: site.source, '' | replace: '/_fixes/', '' }}" : {{ fix.x-aw-config.include | json }},
+{% endfor %}
+{% endcomment %}
+
+    "--": ""
+  }
+}

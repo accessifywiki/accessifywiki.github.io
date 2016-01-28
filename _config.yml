@@ -1,0 +1,55 @@
+# Site settings
+title: Accessify Wiki<i> beta</i>
+email: nfreear@yahoo.co.uk
+x-subtitle: Fixing the Web for all, one site at a time
+description: > # this means to ignore newlines until "baseurl:"
+  Fixing the Web for all, one site at a time.
+  We are the open, transparent accessibility middleware.
+
+  License for fixes:  MIT.
+
+  License for other code:  GPLv3+.
+
+  License for documentation:  Creative Commons Attribution.
+baseurl: "" # the subpath of your site, e.g. /blog/
+url: "http://accessifywiki.github.io"
+x-was-url: "http://accessifywiki.org" # the base hostname & protocol for your site
+twitter_username: AccessifyWiki
+github_username:  AccessifyWiki  # Was: nfreear
+x-author-url: https://twitter.com/nfreear
+
+# Was: search-index: /search-index.json
+x-fix-index: /fix/index.json
+
+gems:
+  - json
+  - yaml
+  # "multipost" is not a Gem!
+
+collections:
+  # 2x layouts? https://github.com/jekyll/jekyll/issues/3041; https://github.com/saclark/jekyll-multipost
+  fixes:
+    output: true
+    ##layout: [ fix, fix-json ]
+    permalink: /fix/:path.html
+    # Was: permalink: /wiki/fix::path.html
+    # Plus JSON? permalink: /wiki/fix/:path.json
+
+# Requires Jekyll 3.
+webrick:
+  headers:
+    My-Header: My-Value
+    X-My-Header: "1"
+    # CORS header.
+    Access-Control-Allow-Origin: "*"
+
+exclude:
+  - Makefile
+  - node_modules
+  - package.json
+
+include:
+  - _pages
+
+# Build settings
+markdown: kramdown
