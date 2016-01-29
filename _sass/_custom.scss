@@ -2,8 +2,11 @@
  * Custom CSS.
  */
 
+a:focus {
+  text-decoration: underline;
+}
+
 .site-title, .site-nav {
-  //float: none;
   //Was: line-height: 56px;
   line-height: 44px;
   letter-spacing: -0.5px;
@@ -15,7 +18,7 @@
   letter-spacing: 1px;
   margin-left: 3px;
   position: relative;
-  top: -5px;
+  top: -6px;
 }
 .x-subtitle {
   clear: both;
@@ -33,6 +36,18 @@
 
 #screenshot {
   min-height: 300px;
+}
+
+.github-fork-ribbon {
+  background-color: #070;
+}
+.github-fork-ribbon a:visited {
+  color: #fff;
+}
+.github-fork-ribbon a:hover,
+.github-fork-ribbon a:focus {
+  color: #fefede;
+  text-decoration: underline;
 }
 
 

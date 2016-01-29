@@ -1,23 +1,21 @@
 # https://pages.github.com/versions/
 # https://docs.travis-ci.com/user/languages/ruby
-# https://github.com/jekyll/jekyll/blob/master/.travis.yml
-# https://github.com/jekyll/jekyll/blob/master/script/cibuild
-# https://github.com/IET-OU/open-media-player/blob/2.x/.travis.yml
-# https://github.com/travis-ci/travis.rb
+# https://github.com/jekyll/jekyll
 
-before_script:
-  - bundle update
-  - gem install github-pages
-bundler_args: --without benchmark:site:development
-cache: bundler
 language: ruby
-sudo: false
-
 rvm:
   - &ruby3 2.1.8
 
+bundler_args: --without benchmark:site:development
+cache: bundler
+sudo: false
+
+before_script:
+  # Was: - bundle update
+  - gem install github-pages
+
 script:
-  #- bundle exec jekyll build
+  # Was: - bundle exec jekyll build
   - jekyll build
   - ruby _bin/validate-json-index.rb
   # http://localhost:4000

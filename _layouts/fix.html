@@ -16,7 +16,7 @@ layout: default
   </article>
 
   {% assign screenshot = page.x-aw-config.test_urls[0] | uri_escape  %}
-  <!-- | replace: '/', '%2F' | replace: ':', '%3A' -->
+  {% comment %} | replace: '/', '%2F' | replace: ':', '%3A' {% endcomment %}
 
   {% comment %} http://labnol.org/internet/webpage-screenshots-dynamic/19341/#captureform {% endcomment %}
   <p id="screenshot"><a href="{{ page.x-aw-config.test_urls[0] }}"
