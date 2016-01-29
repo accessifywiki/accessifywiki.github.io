@@ -6,10 +6,10 @@ x-author: "@nfreear"
 ---
 {
   "--": "auto-generated",
-  "title": {{ site.title | strip_html | json }},
-  "link": {{ site.url | json }},
-  "author": {{ site.x-author-url | json }},
-  "time": "{{ site.time }}",
+  "title": {{ site.title | strip_html | jsonify }},
+  "link": {{ site.url | jsonify }},
+  "author": {{ site.x-author-url | jsonify }},
+  "time": {{ site.time | date_to_xmlschema | jsonify }},
   "fix_url": "/fix/:ID.html#fixes=%23fix-api-json&styles=%23fix-api-css",
   "fix_url_pattern": ":ID",
   "fix_selectors": {
@@ -17,18 +17,15 @@ x-author: "@nfreear"
     "styles": "#fix-api-css"
   },
   "fix_index": {
-{% comment %}
-  "search_index": {
-{% endcomment %}
 {% for fix in site.fixes %}
   {% for pattern in fix.x-aw-config.include %}
-    {{ pattern | json }}: "{{ fix.path | replace: site.source, '' | replace: '/_fixes/', '' | replace: '.md', '' }}",
+    {{ pattern | jsonify }}: "{{ fix.path | replace: site.source, '' | replace: '/_fixes/', '' | replace: '.md', '' }}",
   {% endfor %}
 {% endfor %}
 
 {% comment %}
 {% for fix in site.fixes %}
-    "{{ fix.path | replace: site.source, '' | replace: '/_fixes/', '' }}" : {{ fix.x-aw-config.include | json }},
+    "{{ fix.path | replace: site.source, '' | replace: '/_fixes/', '' }}" : {{ fix.x-aw-config.include | jsonify }},
 {% endfor %}
 {% endcomment %}
 

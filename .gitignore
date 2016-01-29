@@ -16,7 +16,7 @@ _bin/search-indexer.js
 _layouts/fix-json.json
 _pages/search-index-0.json
 _plugins/multipost.rb
-_sass/_custom.scss
+#_sass/_custom.scss
 
 
 #End.

@@ -6,27 +6,32 @@ layout: default
   <header class="post-header">
     <h1 class="post-title"><i>Fix:</i>{{ page.title }}</h1>
     <p class="post-meta">{{ page.date | date: "%b %-d, %Y" }}{% if page.author %} • {{ page.author }}{% endif %}{% if page.meta %} • {{ page.meta }}{% endif %}</p>
-  </header>
 
-  <p id="page-nav" role="navigation">On this page: <a href="#notes">Notes</a> • <a href="#config">Config</a> • <a href="#fixes">Fixes</a> • <a href="#styles">Styles</a>
+    <p id="page-nav" role="navigation">On this page: <a href="#notes">Notes</a> • <a href="#config">Config</a> • <a href="#fixes">Fixes</a> • <a href="#styles">Styles</a>
+  </header>
 
 
   <article id="notes" class="post-content">
     {{ content }}
   </article>
 
+  {% assign screenshot = page.x-aw-config.test_urls[0] | uri_escape  %}
+  <!-- | replace: '/', '%2F' | replace: ':', '%3A' -->
+
+  {% comment %} http://labnol.org/internet/webpage-screenshots-dynamic/19341/#captureform {% endcomment %}
+  <p id="screenshot"><a href="{{ page.x-aw-config.test_urls[0] }}"
+    ><img src="http://s.wordpress.com/mshots/v1/{{ screenshot }}?w=1024"
+    title="Screenshot of: {{ page.title }}"></a></p>
 
   <div id="config">
     <h2>Config</h2>
-    {% highlight json linenos %}
-    {{ page.x-aw-config | json }}
-    {% endhighlight %}
+    <pre><code class="json"></code></pre>
 
 {% comment %}
-    {% highlight YAML linenos %}
-    {{ page.x-aw-config | yaml }}
+    {% highlight json linenos %}
+    {{ page.x-aw-config | jsonify }}
     {% endhighlight %}
-{% endcomment %}
+
     <pre>
     <code class="yaml">
 <tt class="yaml-b">%YAML 1.2</tt>
@@ -34,22 +39,13 @@ layout: default
 <tt class="yaml-a">...</tt>
     </code>
     </pre>
+{% endcomment %}
   </div>
 
 
   <div id="fixes">
     <h2>Fixes</h2>
-    {% highlight json linenos %}
-    {{ page.x-aw-fixes | json }}
-    {% endhighlight %}
-
-    <pre>
-    <code class="yaml">
-<tt class="yaml-b">%YAML 1.2</tt>
-{{ page.x-aw-fixes | yaml }}
-<tt class="yaml-a">...</tt>
-    </code>
-    </pre>
+    <pre><code class="json"></code></pre>
   </div>
 
   <div id="styles">
@@ -63,58 +59,23 @@ layout: default
 <meta property="og:type" content="http://accessifywiki.org/Fix">
 <script type="x/fix+json" property="AW:fixes" id="fix-api-json">
 {
-"title": {{ page.title | json }},
-"tags": {{ page.tags | json }},
-"date": "{{ page.date }}",
-"config": {{ page.x-aw-config | json }},
-"fixes" : {{ page.x-aw-fixes  | json }},
-{% assign styles_r = [ page.x-aw-styles ] %}
-"styles": {{ page.x-aw-styles | json }}
+"title": {{ page.title | jsonify }},
+"tags": {{ page.tags | jsonify }},
+"date": {{ page.date | jsonify }},
+"config": {{ page.x-aw-config | jsonify }},
+"fixes" : {{ page.x-aw-fixes  | jsonify }},
+"styles": {{ page.x-aw-styles | jsonify }}
 }
 </script>
 
 {% comment %}
   <script type="x/meta-json" property="AW:config">{{ page.x-aw-config | json }}</script>
   <script type="x/meta-json" property="AW:fixes">{{ page.x-aw-fixes | json }}</script>
-  <script type="x/fix+css" property="AW:styles" id="fix-api-css">{{ page.x-aw-styles | json }}</script>
-{% endcomment %}
+  <script type="x/fix+css" property="AW:styles" id="fix-api-css">{{ page.x-aw-styles | jsonify }}</script>
 
   <meta itemprop="accessibilityAPI" content="ARIA"/><!-- Microdata: https://schema.org/accessibilityAPI -->
   <meta property="accessibilityFeature" content="alternativeText"/><!-- RDFa: https://schema.org/accessibilityFeature -->
+{% endcomment %}
 </div>
 
 </div>
-
-
-
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
-
-<link rel=stylesheet href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.1.0/styles/default.min.css">
-<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.1.0/highlight.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.1.0/languages/yaml.min.js"></script>
-
-<style>
-  .hljs { background: none; padding: 0; }
-  .hljs .yaml-b,
-  .hljs .yaml-a { color: red; }
-  .post-title i { font-style: normal; color: #555; display: inline-block; margin-right: 3px; }
-</style>
-
-<script>
-//hljs.initHighlightingOnLoad();
-
-$(function () {
-
-  $('pre code.yaml').each(function (i, block) {
-    hljs.highlightBlock(block);
-  })
-
-  console.log("highlight.js: ", hljs.listLanguages());
-
-  var fix_json = $("#fix-api-json").text()
-    , fix_data = JSON.parse(fix_json)
-    , fix_css = $("#fix-api-css").text();
-
-  console.log("Parsed fix-json / fix-css: ", fix_data, fix_css);
-});
-</script>

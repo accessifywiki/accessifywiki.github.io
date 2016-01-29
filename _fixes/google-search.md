@@ -14,7 +14,7 @@ x-aw-config:
         - https://*.google.co.uk/*
         - http://www.google.com/*
     test_urls:
-        - http://www.google.co.uk/search?q=Accessify
+        - https://google.co.uk/search?q=Accessify+Wiki
         - http://www.google.de/
         - http://www.google.com.au/
         - http://www.google.com.br/
@@ -130,9 +130,10 @@ Includes WAI-ARIA landmark roles.
 
 Google logo 2013
 
-* Wikipedia:List of Google domains
+* [Wikipedia:List of Google domains][]
 * Wikipedia:File:Logo 2013 Google.png
-* See also: Fix:Baidu search
+* See also: [Fix:Baidu search][]
 
 
-Categories:
+[Wikipedia:List of Google domains]: https://en.wikipedia.org/wiki/List_of_Google_domains
+[Fix:Baidu search]: /fix/baidu-search.html
