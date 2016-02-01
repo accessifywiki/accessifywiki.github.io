@@ -7,7 +7,17 @@ layout: default
     <h1 class="post-title"><i>Fix:</i>{{ page.title }}</h1>
     <p class="post-meta">{{ page.date | date: "%b %-d, %Y" }}{% if page.author %} • {{ page.author }}{% endif %}{% if page.meta %} • {{ page.meta }}{% endif %}</p>
 
-    <p id="page-nav" role="navigation">On this page: <a href="#notes">Notes</a> • <a href="#config">Config</a> • <a href="#fixes">Fixes</a> • <a href="#styles">Styles</a>
+    {% assign slug = page.title | slugify %}
+    {% assign fix_url = '/%X/master/_fixes/%s.md' | replace: '%s', slug | prepend: site.x-github-url %}
+    <p class="post-links">
+      <span id="page-nav" role="navigation" aria-label="On this page">On this page:
+        <a href="#notes">Notes</a> • <a href="#config">Config</a>
+      • <a href="#fixes">Fixes</a> • <a href="#styles">Styles</a></span>
+      • <span id="gh-nav" role="navigation" aria-label="About this page">About this page:
+        <a href="{{ fix_url | replace: '%X', 'raw' }}" title="On GitHub">Raw<i> on GitHub</i></a>
+      • <a href="{{ fix_url | replace: '%X', 'blame' }}" title="On GitHub">Blame<i> on GitHub</i></a>
+      • <a href="{{ fix_url | replace: '%X', 'commits' }}" title="On GitHub">History<i> on GitHub</i></a></span>
+      {% if page.x-wiki%}• <a href="{{ page.x-wiki }}" title="On Wikia">Legacy<i> page on Wikia</i></a>{% endif %}
   </header>
 
 
@@ -23,9 +33,24 @@ layout: default
     ><img src="http://s.wordpress.com/mshots/v1/{{ screenshot }}?w=1024"
     title="Screenshot of: {{ page.title }}"></a></p>
 
-  <div id="config">
+  <aside role="complementary" aria-label="Help! What is this?">
+    <button id="btn-what" title="Show/hide some help">Help! What is this?</button>
+    <div id="what">
+      <p>On this page you'll find fixes for accessibility problems, targeted to a specific web site or group of sites.
+      <p>The fixes are in three sections: at the top you'll find the configuration, showing what pages the fixes are applied to.
+        In the middle you'll find the accessibility fixes themselves, and at the bottom there are optional style fixes.
+      <p>The configuration and fixes are shown below in YAML format (probably good for most users) and JSON (may be better for screen reader users).
+        Use the buttons to switch at will.
+      <p><a href="#">More info</a>
+    </div>
+  </aside>
+
+  <section id="config" role="region" aria-label="Config">
     <h2>Config</h2>
-    <pre><code class="json"></code></pre>
+    <button class="btn-yaml" disabled="disabled" title="Currently YAML">YAML<i> config</i></button>
+    <button class="btn-json" title="Switch to JSON">JSON<i> config</i></button>
+    <pre class="pre-yaml"><h3>YAML<i> config</i></h3><code class="yaml"></code></pre>
+    <pre class="pre-json"><h3>JSON<i> config</i></h3><code class="json"></code></pre>
 
 {% comment %}
     {% highlight json linenos %}
@@ -40,20 +65,24 @@ layout: default
     </code>
     </pre>
 {% endcomment %}
-  </div>
+  </section>
 
 
-  <div id="fixes">
+  <section id="fixes" role="region" aria-label="Fixes">
     <h2>Fixes</h2>
-    <pre><code class="json"></code></pre>
-  </div>
+    <button class="btn-yaml" disabled="disabled" title="Currently YAML">YAML<i> fixes</i></button>
+    <button class="btn-json" title="Switch to JSON">JSON<i> fixes</i></button>
+    <pre class="pre-yaml"><h3>YAML<i> fixes</i></h3><code class="yaml"></code></pre>
+    <pre class="pre-json"><h3>JSON<i> fixes</i></h3><code class="json"></code></pre>
+  </section>
 
-  <div id="styles">
+  <section id="styles" role="region" aria-label="Styles">
     <h2>Styles</h2>
     {% highlight css linenos %}
     {{ page.x-aw-styles }}
     {% endhighlight %}
-  </div>
+  </section>
+
 
 <div id="fix-api">
 <meta property="og:type" content="http://accessifywiki.org/Fix">

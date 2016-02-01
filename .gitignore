@@ -10,6 +10,7 @@ _site
 *BAK*
 #*-0*
 
+_bin/fix-api.php
 _bin/fixes-json.php
 _bin/search-indexer.php
 _bin/search-indexer.js

@@ -10,12 +10,16 @@ x-author: "@nfreear"
   "link": {{ site.url | jsonify }},
   "author": {{ site.x-author-url | jsonify }},
   "time": {{ site.time | date_to_xmlschema | jsonify }},
-  "fix_url": "/fix/:ID.html#fixes=%23fix-api-json&styles=%23fix-api-css",
+{% comment %}"fix_url": "/fix/:ID.html#fixes=%23fix-api-json&styles=%23fix-api-css",{% endcomment %}
+  "fix_url": {{ '/fix/:ID.html' | prepend: site.url | jsonify }},
   "fix_url_pattern": ":ID",
+  "fix_selector": "#fix-api-json",
+{% comment %}
   "fix_selectors": {
     "fixes":  "#fix-api-json",
     "styles": "#fix-api-css"
   },
+{% endcomment %}
   "fix_index": {
 {% for fix in site.fixes %}
   {% for pattern in fix.x-aw-config.include %}

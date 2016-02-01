@@ -13,12 +13,13 @@ description: > # this means to ignore newlines until "baseurl:"
   Documentation: <a href="//creativecommons.org/licenses/by/4.0">Creative Commons Attribution</a>.
 baseurl: "" # the subpath of your site, e.g. /blog/
 url: "http://accessifywiki.github.io"
-x-was-url: "http://accessifywiki.org" # the base hostname & protocol for your site
+x-was-url: "http://accessifywiki.org"  # the base hostname & protocol for your site
 twitter_username: AccessifyWiki
 github_username:  AccessifyWiki  # Was: nfreear
+
+x-legacy-url: http://accessify.wikia.com/wiki/Accessify_Wiki
 x-github-url: https://github.com/accessifywiki/accessifywiki.github.io
 x-author-url: https://twitter.com/nfreear
-
 # Was: search-index: /search-index.json
 x-fix-index: /fix/index.json
 
@@ -54,3 +55,5 @@ include:
 
 # Build settings
 markdown: kramdown
+
+#End.

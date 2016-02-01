@@ -5,6 +5,9 @@
 a:focus {
   text-decoration: underline;
 }
+button {
+  cursor: pointer;
+}
 
 .site-title, .site-nav {
   //Was: line-height: 56px;
@@ -30,44 +33,137 @@ a:focus {
   color: #555;
   margin-right: 3px;
 }
-#page-nav a {
-  text-transform: lowercase;
+
+
+.post.fix {
+  h2 {
+    float: left;
+    margin: 25px 0 7px;
+  }
+  button {
+    font-size: .95em;
+    padding: 5px 12px;
+    float: right;
+    margin: 42px 0 0;
+  }
+  #screenshot {
+    min-height: 300px;
+
+    //img[ src *= 's.wordpress.com/mshots' ]
+    a img {
+      border: 1px solid #ccc;
+    }
+  }
+  #btn-what {
+    float: none;
+    cursor: help;
+  }
+  pre {
+    clear: both;
+
+    h3 {
+      font: bold 1em/1.2 sans-serif;
+      margin: 0;
+      position: relative;
+      top: -6px;
+    }
+  }
+
+  .pre-json, #what {
+    display: none;
+  }
+
+  #what {
+    font-size: .95em;
+    background: #f7f7f7;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 0 9px;
+
+    p {
+      margin: 9px 0;
+    }
+  }
 }
 
-#screenshot {
-  min-height: 300px;
+
+.accesshide,
+.post-links a i,
+.post.fix button i,
+.post.fix pre h3 i {
+  position: absolute;
+  top: -1000px;
 }
+
+.post-links {
+  a {
+    text-transform: lowercase;
+  }
+  a[ href *= 'accessify.wikia.com' ],
+  #gh-nav a {
+    cursor: alias;
+  }
+  #page-nav a {
+    cursor: s-resize;
+  }
+}
+
+.use-page {
+  a[ href ^= javascript ],
+  a[ href *= '.user.js' ] {
+    background: #eee;
+    border: 1px solid #bbb;
+    border-radius: 4px;
+    padding: 4px 12px;
+    font-size: 1.1em;
+    cursor: move;
+
+    &:hover, &:focus {
+      background: #ddd;
+      border-color: #777;
+    }
+  }
+}
+
+
+/* 'Fork me on GitHub' ribbon.
+*/
+// https://simonwhitaker.github.io/github-fork-ribbon-css/
+// https://codepo8.github.io/css-fork-on-github-ribbon/
 
 .github-fork-ribbon {
   background-color: #070;
-}
-.github-fork-ribbon a:visited {
-  color: #fff;
-}
-.github-fork-ribbon a:hover,
-.github-fork-ribbon a:focus {
-  color: #fefede;
-  text-decoration: underline;
+
+  a:visited {
+    color: #fff;
+  }
+  a:hover,
+  a:focus {
+    color: #fefede;
+    text-decoration: underline;
+  }
 }
 
 
 /* Highlight.js
 */
+// https://highlightjs.org | http://minh.io/tech/2013/08/17/highlightjs-line-numbers/
 
 .hljs {
   background: none;
   padding: 0;
-}
-.hljs .yaml-b,
-.hljs .yaml-a {
-  color: red;
-}
 
-.hljs-attr {
-  color: #000080;
-}
-.hljs-string {
-  color: #d14;
+  .yaml-b,
+  .yaml-a {
+    color: red;
+  }
+  .hljs-attr {
+    color: #000080;
+    //word-spacing: 2px;
+  }
+  .hljs-string {
+    color: #d14;
+  }
 }
 
 

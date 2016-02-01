@@ -19,20 +19,67 @@ jQuery(function ($) {
   var W = window
     , debug = W.location.search.match(/debug=1/) // /debug=([1-9])/
     , D = W.console /* && debug */
-    , BLOG = $("#js-config").data()
-    , fix_json = $("#fix-api-json").text()
+    , CFG = $('#js-config').data()
+    , fix_json = $('#fix-api-json').text()
     , fix_data = fix_json && JSON.parse(fix_json)
-    , fix_css  = $("#fix-api-css").text()
-    , $json_config = $("#config .json")
-    , $json_fixes  = $("#fixes .json")
-    , $screenshot  = $("#screenshot img")
+    //, fix_css  = $('#fix-api-css').text()
+    , $json_config = $('#config .json')
+    , $yaml_config = $('#config .yaml')
+    , $json_fixes  = $('#fixes .json')
+    , $yaml_fixes  = $('#fixes .yaml')
+    , $btn_json_config = $('#config .btn-json')
+    , $btn_yaml_config = $('#config .btn-yaml')
+    , $btn_json_fixes = $('#fixes .btn-json')
+    , $btn_yaml_fixes = $('#fixes .btn-yaml')
+    , $help_what = $('#what')
+    , $btn_what = $('#btn-what')
+    //, $screenshot  = $('#screenshot img')
+    , anim = 500  //Was: 'slow'
     ;
 
-  BLOG.debug = debug;
+  CFG.debug = debug;
 
 
   $json_config.text( jsonify( fix_data.config ));
   $json_fixes.text( jsonify( fix_data.fixes ));
+
+  $yaml_config.text( yamlify( fix_data.config ));
+  $yaml_fixes.text( yamlify( fix_data.fixes ));
+
+  $btn_what.on('click', function () {
+    $help_what.toggle(anim);
+  });
+
+  $btn_yaml_fixes.on('click', function () {
+    toggle_buttons($(this), $btn_json_fixes);
+    toggle_code($yaml_fixes, $json_fixes);
+  });
+  $btn_json_fixes.on('click', function () {
+    toggle_buttons($(this), $btn_yaml_fixes);
+    toggle_code($yaml_fixes, $json_fixes);
+  });
+
+
+  $btn_yaml_config.on('click', function () {
+    toggle_buttons($(this), $btn_json_config);
+    toggle_code($yaml_config, $json_config);
+  });
+  $btn_json_config.on('click', function () {
+    toggle_buttons($(this), $btn_yaml_config);
+    toggle_code($yaml_config, $json_config);
+  });
+
+
+  function toggle_buttons($btn_to_disable, $btn_to_enable) {
+    $btn_to_disable.attr({ disabled: 'disabled', title: 'Currently ' + $btn_to_disable.text() });
+    $btn_to_enable.attr({ disabled: null, title: 'Switch to ' + $btn_to_enable.text() });
+    console.log('toggle_buttons');
+  }
+  function toggle_code($code_a, $code_b) {
+    $code_a.parent().toggle(anim); //Was: 'slow'
+    $code_b.parent().toggle(anim);
+  }
+
 
   $('pre code.yaml, pre code.json').each(function (i, block) {
     hljs.highlightBlock(block);
@@ -45,7 +92,7 @@ jQuery(function ($) {
   });
 
 
-  D && console.log("Parsed fix-json / fix-css: ", fix_data, fix_css);
+  D && console.log("Parsed fix-json / fix-css: ", fix_data);
 
   D && console.log("highlight.js: "); //, hljs.listLanguages());
 
@@ -53,6 +100,9 @@ jQuery(function ($) {
   // http://stackoverflow.com/questions/4810841/how-can-i-pretty-print-json-using-javascript
   function jsonify(data) {
     return JSON.stringify(data, null, 2);
+  }
+  function yamlify(data) {
+    return data && jsyaml.safeDump( data , { indent: 6 /*, lineWidth: 80*/ });
   }
 
 });
