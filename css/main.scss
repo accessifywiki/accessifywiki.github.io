@@ -17,6 +17,9 @@ $text-color:       #222;  //Was: #111;
 $background-color: #fdfdfd;
 $brand-color:      #2a7ae2;
 
+$message-background: #fffbfb; // V. pale orange.
+$transition:       1s; //Was: .8s;
+
 $grey-color:       #727272;  //Was: #828282;
 $grey-color-light: lighten($grey-color, 40%);
 $grey-color-dark:  darken($grey-color, 25%);

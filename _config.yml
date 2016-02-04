@@ -27,6 +27,15 @@ js_config:
   # Google Analytics.
   analytics_id: UA-40194374-5
 
+x-custom-nav:
+  - <a href="http://accessify.wikia.com/wiki/Accessify_Wiki" title="Accessify wiki on Wikia">Legacy wiki</a>
+  #- <a href="#">Test 2</a>
+
+#x-site-message: Hello world! Just a <a href="#">test</a>!
+
+# https://access.ecs.soton.ac.uk/ToolBar/
+# https://atbar.org/
+#x-atbar: true
 
 gems:
   - json
@@ -45,8 +54,6 @@ collections:
 # Requires Jekyll 3.
 webrick:
   headers:
-    My-Header: My-Value
-    X-My-Header: "1"
     # CORS header.
     Access-Control-Allow-Origin: "*"
 
