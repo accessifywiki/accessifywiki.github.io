@@ -2,11 +2,18 @@
  * Custom CSS.
  */
 
-a:focus {
-  text-decoration: underline;
+body a:focus {
+   text-decoration: underline;
+   color: navy;
 }
 button {
   cursor: pointer;
+}
+
+a:hover img {
+  outline: 2px solid darkorange;
+  outline-offset: 5px;
+  transition: 2s; //$transition;
 }
 
 .site-title, .site-nav {
@@ -51,7 +58,11 @@ button {
 
     //img[ src *= 's.wordpress.com/mshots' ]
     a img {
-      border: 1px solid #ccc;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+    }
+    :hover img, :focus img {
+      border-color: #bbb;
     }
   }
   #btn-what {
@@ -87,6 +98,7 @@ button {
 }
 
 
+.sr-only,
 .accesshide,
 .post-links a i,
 .post.fix button i,

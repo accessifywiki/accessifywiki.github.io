@@ -23,6 +23,11 @@ x-author-url: https://twitter.com/nfreear
 # Was: search-index: /search-index.json
 x-fix-index: /fix/index.json
 
+js_config:
+  # Google Analytics.
+  analytics_id: UA-40194374-5
+
+
 gems:
   - json
   - yaml

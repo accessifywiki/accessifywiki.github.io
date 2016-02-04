@@ -1,5 +1,6 @@
 [![Build status — Travis-CI][travis-icon]][travis]
 [![Developing with accessibility in mind — Google search][a11y-icon]][a11y-search]
+[![Jekyll][jekyll-icon]][jekyll]
 
 
 # Accessify Wiki (beta)
@@ -21,12 +22,17 @@ Licenses: [fixes MIT][], [other code GPL][], [documentation CC-BY][]. [@nfreear]
 [documentation CC-BY]: http://creativecommons.org/licenses/by/4.0/ "Creative Commons Attribution license [CC-BY]"
 [@nfreear]: https://twitter.com/nfreear "Nick Freear on Twitter [@nfreear]"
 
+[Jekyll]: http://jekyllrb.com/ "Powered by Jekyll & GitHub pages"
+[jekyll-icon]: https://img.shields.io/badge/powered_by-Jekyll-ca0303.svg#!-j-red
 [travis]: https://travis-ci.org/accessifywiki/accessifywiki.github.io
 [travis-icon]: https://travis-ci.org/accessifywiki/accessifywiki.github.io.svg
-[a11y-icon]:   https://img.shields.io/badge/accessibility-in%20mind-orange.svg
-    "'Designing & developing with accessibility in mind' — search&hellip;"
+[a11y-icon]:   https://img.shields.io/badge/accessibility-in_mind-orange.svg
+    "'Designing & developing with accessibility in mind' — search..."
 [webaim]: http://webaim.org/
 [w3c]:  https://w3.org/wiki/Accessibility_basics
 [a11y-search]: https://google.com/search?q=Web+accessibility+primer,+in+mind
 [HIKE]: http://accessibility.parseapp.com/
     "'H stands for headings & semantic markup; I for images & labels; K for keyboard navigation; E for extra love'"
+
+
+[End]: //end.

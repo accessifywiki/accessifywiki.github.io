@@ -19,7 +19,7 @@ jQuery(function ($) {
   var W = window
     , debug = W.location.search.match(/debug=1/) // /debug=([1-9])/
     , D = W.console /* && debug */
-    , CFG = $('#js-config').data()
+    , SITE = $('#js-config').data()
     , fix_json = $('#fix-api-json').text()
     , fix_data = fix_json && JSON.parse(fix_json)
     //, fix_css  = $('#fix-api-css').text()
@@ -37,7 +37,15 @@ jQuery(function ($) {
     , anim = 500  //Was: 'slow'
     ;
 
-  CFG.debug = debug;
+  SITE.debug = debug;
+
+  $.AW_SITE = SITE;
+
+
+  /* Google Analytics.
+  */
+  ga('create', SITE.analytics_id, 'auto');
+  ga('send', 'pageview');
 
 
   $json_config.text( jsonify( fix_data.config ));
