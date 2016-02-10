@@ -1,0 +1,19 @@
+{
+  "--": "auto-generated",
+  "title": {{ site.title | strip_html | jsonify }},
+  "link": {{ site.url | jsonify }},
+  "author": {{ site.x-author-url | jsonify }},
+  "time": {{ site.time | date_to_xmlschema | jsonify }},
+  "fix_url": {{ '/fix/:ID.html' | prepend: site.url | jsonify }},
+  "fix_url_pattern": ":ID",
+  "fix_selector": {{ site.ex.fix_selector | jsonify }},
+  "fix_count": {{ site.fixes | size }},{% assign count = 0 %}
+  "fix_index": {
+{% for fix in site.fixes %}
+  {% for pattern in fix.x-aw-config.include %}
+    {% if count > 0 %},{% else %} {% endif %} {% assign count = count | plus: 1 %}{{ pattern | jsonify }}: {{ fix.url | remove: '/fix/' | remove: '.html' | jsonify }}
+  {% endfor %}
+{% endfor %}
+  },
+  "pattern_count": {{ count }}
+}

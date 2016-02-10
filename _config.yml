@@ -20,9 +20,12 @@ github_username:  AccessifyWiki  # Was: nfreear
 x-legacy-url: http://accessify.wikia.com/wiki/Accessify_Wiki
 x-github-url: https://github.com/accessifywiki/accessifywiki.github.io
 x-author-url: https://twitter.com/nfreear
-# Was: search-index: /search-index.json
-x-fix-index: /fix/index.json
-x-fix-selector: "#fix-api-json"
+
+ex:
+  # Was: search-index: /search-index.json
+  fix_index: /fix/index.json
+  fix_index_jsonp: /fix/index.js
+  fix_selector: "#fix-api-json"
 
 js_config:
   # Google Analytics.

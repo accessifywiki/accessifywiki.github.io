@@ -4,36 +4,4 @@ permalink: /fix/index.json
 x-was-permalink: /search-index.json
 x-author: "@nfreear"
 ---
-{
-  "--": "auto-generated",
-  "title": {{ site.title | strip_html | jsonify }},
-  "link": {{ site.url | jsonify }},
-  "author": {{ site.x-author-url | jsonify }},
-  "time": {{ site.time | date_to_xmlschema | jsonify }},
-{% comment %}"fix_url": "/fix/:ID.html#fixes=%23fix-api-json&styles=%23fix-api-css",{% endcomment %}
-  "fix_url": {{ '/fix/:ID.html' | prepend: site.url | jsonify }},
-  "fix_url_pattern": ":ID",
-  "fix_selector": {{ site.x-fix-selector | jsonify }},
-{% comment %}
-  "fix_selectors": {
-    "fixes":  {{ site.x-fix-selector | jsonify }},
-    "styles": "#fix-api-css"
-  },
-{% endcomment %}
-  "fix_index": {
-{% for fix in site.fixes %}
-  {% for pattern in fix.x-aw-config.include %}
-{% comment %}{{ pattern | jsonify }}: "{{ fix.path | replace: site.source, '' | replace: '_fixes/', '' | replace: '/', '' | replace: '.md', '' }}",{% endcomment %}
-    {{ pattern | jsonify }}: {{ fix.url | replace: '/fix/', '' | replace: '.html', '' | jsonify }},
-  {% endfor %}
-{% endfor %}
-
-{% comment %}
-{% for fix in site.fixes %}
-    "{{ fix.path | replace: site.source, '' | replace: '/_fixes/', '' }}" : {{ fix.x-aw-config.include | jsonify }},
-{% endfor %}
-{% endcomment %}
-
-    "--": ""
-  }
-}
+{% include_relative fix-index-source.json %}
