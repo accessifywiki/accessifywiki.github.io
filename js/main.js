@@ -1,3 +1,7 @@
+---
+layout: null
+permalink: /js/main.js
+---
 /*!
 
 
@@ -12,7 +16,13 @@
 })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
 
-jQuery(function ($) {
+/* Google Analytics.
+*/
+ga('create', '{{ site.js_config.analytics_id }}', 'auto');
+ga('send', 'pageview');
+
+
+window.jQuery && jQuery(function ($) {
 
   'use strict';
 
@@ -40,12 +50,6 @@ jQuery(function ($) {
   SITE.debug = debug;
 
   $.AW_SITE = SITE;
-
-  /* Google Analytics.
-  */
-  ga('create', SITE.analytics_id, 'auto');
-  ga('send', 'pageview');
-
 
   D && console.log($.AW_SITE);
 
@@ -120,6 +124,7 @@ jQuery(function ($) {
     return data && jsyaml.safeDump( data , { indent: 6 /*, lineWidth: 80*/ });
   }
 
-});
+
+}) || window.console && console.log("No jQuery");
 
 //End.

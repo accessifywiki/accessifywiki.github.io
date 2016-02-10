@@ -1,0 +1,50 @@
+---
+layout:  null
+permalink: /example-1a.html
+---
+<!doctype html><meta charset="utf-8"><title>Example 1a – Accessify Wiki</title>
+
+<style>
+[role = heading][aria-level = '1'] {
+  color: red;
+  margin: 1em 0;
+  font-size: 1.7em;
+}
+</style>
+
+<div class="header">
+  <div class="page-heading">Example 1a – With accessibility problems</div>
+
+  <div role="heading" aria-level="1">Heading 2</div>
+
+  <div id="nav">
+  <ul>
+    <li><a href="/"{% comment %} "http://accessify.wikia.com/"{% endcomment %}>Home</a>
+    <li><a href="#/page/2">Page 2</a>
+    <li><a href="#/page/3">Page 3</a>
+  </ul>
+  </div>
+
+  <form id="search">
+    <p><label for="missing-id">Search site</label>
+      <input name="q" />
+      <button type="submit" onclick="alert('Search mock up!');return false;">&rarr;</button>
+      <a href="#/help/search" onclick="alert('Help mock up!')"><img src=
+        "http://accessifywiki.appspot.com/site/pix/AFTv5.FES.help_icon.png" {% comment %} "pix/AFTv5.FES.help_icon.png" {% endcomment %}
+      /></a>
+  </form>
+</div>
+
+
+<div id="content">
+  <p>Some content...
+</div>
+
+
+<pre>
+
+{% comment %} Fixes:  http://accessify.wikia.com/wiki/Fix:Example_fixes {% endcomment %}
+
+</pre>
+<script src="js/main.js"></script>
+{% comment %}<script src="js/accessify-analytics.js"></script>{% endcomment %}
