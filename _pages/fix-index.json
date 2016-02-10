@@ -13,17 +13,18 @@ x-author: "@nfreear"
 {% comment %}"fix_url": "/fix/:ID.html#fixes=%23fix-api-json&styles=%23fix-api-css",{% endcomment %}
   "fix_url": {{ '/fix/:ID.html' | prepend: site.url | jsonify }},
   "fix_url_pattern": ":ID",
-  "fix_selector": "#fix-api-json",
+  "fix_selector": {{ site.x-fix-selector | jsonify }},
 {% comment %}
   "fix_selectors": {
-    "fixes":  "#fix-api-json",
+    "fixes":  {{ site.x-fix-selector | jsonify }},
     "styles": "#fix-api-css"
   },
 {% endcomment %}
   "fix_index": {
 {% for fix in site.fixes %}
   {% for pattern in fix.x-aw-config.include %}
-    {{ pattern | jsonify }}: "{{ fix.path | replace: site.source, '' | replace: '/_fixes/', '' | replace: '.md', '' }}",
+{% comment %}{{ pattern | jsonify }}: "{{ fix.path | replace: site.source, '' | replace: '_fixes/', '' | replace: '/', '' | replace: '.md', '' }}",{% endcomment %}
+    {{ pattern | jsonify }}: {{ fix.url | replace: '/fix/', '' | replace: '.html', '' | jsonify }},
   {% endfor %}
 {% endfor %}
 

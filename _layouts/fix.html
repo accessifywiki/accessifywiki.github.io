@@ -1,23 +1,28 @@
 ---
 layout: default
 ---
+
+{% assign slug_old = page.title | slugify %}
+{% assign fix_id = page.url | replace: '/fix/', '' | replace: '.html', '' %}
+{% assign fix_params = '?fix=%s' | replace: '%s', fix_id %}
+{% assign git_url = '/%X/master/_fixes/%s.md' | replace: '%s', fix_id | prepend: site.x-github-url %}
+
 <div class="post fix">
 
   <header class="post-header">
     <h1 class="post-title"><i>Fix:</i>{{ page.title }}</h1>
     <p class="post-meta">{{ page.date | date: "%b %-d, %Y" }}{% if page.author %} • {{ page.author }}{% endif %}{% if page.meta %} • {{ page.meta }}{% endif %}</p>
 
-    {% assign slug = page.title | slugify %}
-    {% assign fix_url = '/%X/master/_fixes/%s.md' | replace: '%s', slug | prepend: site.x-github-url %}
     <p class="post-links">
       <span id="page-nav" role="navigation" aria-label="On this page">On this page:
         <a href="#notes">Notes</a> • <a href="#config">Config</a>
       • <a href="#fixes">Fixes</a> • <a href="#styles">Styles</a></span>
       • <span id="gh-nav" role="navigation" aria-label="About this page">About this page:
-        <a href="{{ fix_url | replace: '%X', 'raw' }}" title="On GitHub">Raw<i> on GitHub</i></a>
-      • <a href="{{ fix_url | replace: '%X', 'blame' }}" title="On GitHub">Blame<i> on GitHub</i></a>
-      • <a href="{{ fix_url | replace: '%X', 'commits' }}" title="On GitHub">History<i> on GitHub</i></a></span>
+        <a href="{{ git_url | replace: '%X', 'raw' }}" title="On GitHub">Raw<i> on GitHub</i></a>
+      • <a href="{{ git_url | replace: '%X', 'blame' }}" title="On GitHub">Blame<i> on GitHub</i></a>
+      • <a href="{{ git_url | replace: '%X', 'commits' }}" title="On GitHub">History<i> on GitHub</i></a></span>
       {% if page.x-wiki%}• <a href="{{ page.x-wiki }}" title="On Wikia">Legacy<i> page on Wikia</i></a>{% endif %}
+      • <a href="{{ '/use.html' | prepend: site.baseurl }}" title="Use fixes">Use</a></span>
   </header>
 
 
@@ -86,8 +91,10 @@ layout: default
 
 <div id="fix-api">
 <meta property="og:type" content="http://accessifywiki.org/Fix">
-<script type="x/fix+json" property="AW:fixes" id="fix-api-json">
+<script type="x/fix+json" property="AW:fixes" id="{{ site.x-fix-selector | remove: '#' }}">
 {
+"id": {{ fix_id | jsonify }},
+"params": {{ fix_params | jsonify }},
 "title": {{ page.title | jsonify }},
 "tags": {{ page.tags | jsonify }},
 "date": {{ page.date | jsonify }},

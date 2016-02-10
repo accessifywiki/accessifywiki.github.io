@@ -22,10 +22,12 @@ x-github-url: https://github.com/accessifywiki/accessifywiki.github.io
 x-author-url: https://twitter.com/nfreear
 # Was: search-index: /search-index.json
 x-fix-index: /fix/index.json
+x-fix-selector: "#fix-api-json"
 
 js_config:
   # Google Analytics.
   analytics_id: UA-40194374-5
+  debug: ok
 
 x-custom-nav:
   - <a href="http://accessify.wikia.com/wiki/Accessify_Wiki" title="Accessify wiki on Wikia">Legacy wiki</a>
@@ -57,8 +59,12 @@ webrick:
     # CORS header.
     Access-Control-Allow-Origin: "*"
 
+keep_files:
+  - favicon.ico
+
 exclude:
   - Makefile
+  - README.md
   - node_modules
   - package.json
 

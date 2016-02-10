@@ -17,10 +17,10 @@ jQuery(function ($) {
   'use strict';
 
   var W = window
-    , debug = W.location.search.match(/debug=1/) // /debug=([1-9])/
-    , D = W.console /* && debug */
     , SITE = $('#js-config').data()
-    , fix_json = $('#fix-api-json').text()
+    , debug = W.location.search.match(/debug=([1-9])/) || SITE.debug
+    , D = W.console && debug
+    , fix_json = $(SITE.fix_selector).text()
     , fix_data = fix_json && JSON.parse(fix_json)
     //, fix_css  = $('#fix-api-css').text()
     , $json_config = $('#config .json')
@@ -41,11 +41,18 @@ jQuery(function ($) {
 
   $.AW_SITE = SITE;
 
-
   /* Google Analytics.
   */
   ga('create', SITE.analytics_id, 'auto');
   ga('send', 'pageview');
+
+
+  D && console.log($.AW_SITE);
+
+  $('a[ href *= "/use.html" ]').each(function () {
+    var url = $(this).attr('href');
+    $(this).attr('href', url + fix_data.params);
+  })
 
 
   $json_config.text( jsonify( fix_data.config ));
@@ -95,8 +102,8 @@ jQuery(function ($) {
 
   //$screenshot.attr("src", "http://s.wordpress.com/mshots/v1/http%3A%2F%2Flabnol.org%2F?w=1024")
 
-  $.get("/fix/index.json", function (data) {
-    D && console.log("/fix/index.json:", data);
+  D && $.get(SITE.fix_index, function (data) {
+    console.log(SITE.fix_index, data);
   });
 
 

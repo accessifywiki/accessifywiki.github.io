@@ -1,6 +1,5 @@
 # .gitignore
 
-_site
 .sass-cache
 
 /node_modules
@@ -17,7 +16,9 @@ _bin/search-indexer.js
 _layouts/fix-json.json
 _pages/search-index-0.json
 _plugins/multipost.rb
-#_sass/_custom.scss
+
+_site
+!_site/favicon.ico
 
 
 #End.

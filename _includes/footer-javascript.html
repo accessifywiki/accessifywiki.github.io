@@ -1,6 +1,8 @@
 
 <div
  id="js-config"
+ data-fix_index={{ site.x-fix-index | jsonify }}
+ data-fix_selector={{ site.x-fix-selector | jsonify }}
 {% for cfg in site.js_config %} data-{{ cfg[0] }}={{ cfg[1] | jsonify }}{% endfor %}
 ></div>
 
