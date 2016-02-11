@@ -4,6 +4,7 @@
   "link": {{ site.url | jsonify }},
   "author": {{ site.x-author-url | jsonify }},
   "time": {{ site.time | date_to_xmlschema | jsonify }},
+  "generator": {{ jekyll.version | prepend: 'Jekyll v' | jsonify }},
   "fix_url": {{ '/fix/:ID.html' | prepend: site.url | jsonify }},
   "fix_url_pattern": ":ID",
   "fix_selector": {{ site.ex.fix_selector | jsonify }},
