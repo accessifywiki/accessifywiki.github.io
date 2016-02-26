@@ -27,9 +27,11 @@ window.jQuery && jQuery(function ($) {
   'use strict';
 
   var W = window
+    , L = W.location
     , SITE = $('#js-config').data()
-    , debug = W.location.search.match(/debug=([1-9])/) || SITE.debug
+    , debug = L.search.match(/debug=([1-9])/) || SITE.debug
     , D = W.console && debug
+    , is_fix_page = L.href.match(/\/fix\/[a-z]+/)
     , fix_json = $(SITE.fix_selector).text()
     , fix_data = fix_json && JSON.parse(fix_json)
     //, fix_css  = $('#fix-api-css').text()
@@ -53,10 +55,12 @@ window.jQuery && jQuery(function ($) {
 
   D && console.log($.AW_SITE);
 
-  $('a[ href *= "/use.html" ]').each(function () {
-    var url = $(this).attr('href');
-    $(this).attr('href', url + fix_data.params);
-  })
+  if (is_fix_page) {
+    $('a[ href *= "/use.html" ]').each(function () {
+      var url = $(this).attr('href');
+      $(this).attr('href', url + fix_data.params);
+    })
+  }
 
 
   $json_config.text( jsonify( fix_data.config ));

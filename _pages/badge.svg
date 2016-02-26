@@ -1,0 +1,56 @@
+---
+layout:    null
+permalink: /badge.svg
+title:     NN sites fixed
+x-orig:    true
+x-created: 2016-02-13 20:15  ##
+x-nav-class: sr-only
+x-font-size: 13
+x-orig-font-size: 11
+x-color:   "#ff6347"
+x-color-0: darkorange
+x-icon-1:  https://img.shields.io/badge/fixes-99-FF6347.svg#tomato
+x-icon-2:  https://img.shields.io/badge/fixes_x-999-FF6347.svg#tomato
+x-url:     https://css-tricks.com/snippets/css/named-colors-and-hex-equivalents/
+---
+{% unless page.x-orig %}
+<svg xmlns="http://www.w3.org/2000/svg" width="79" height="20">
+{% assign fix_count = site.fixes | size %}
+  <title>{{ page.title | replace: 'NN', fix_count }} — {{ site.title | strip_html }} (badge)</title>
+  <linearGradient id="b" x2="0" y2="100%">
+    <stop offset="0" stop-color="#bbb" stop-opacity=".1"/><stop offset="1" stop-opacity=".1"/>
+  </linearGradient>
+  <mask id="a"><rect width="79" height="20" rx="3" fill="#fff"/></mask>
+  <g mask="url(#a)">
+    <path fill="#555" d="M0 0h48v20H0z"/>
+    <path fill="{{ page.x-color }}" d="M48 0h31v20H48z"/>
+    <path fill="url(#b)" d="M0 0h79v20H0z"/>
+  </g>
+  <g fill="#fff" text-anchor="middle" font-family="DejaVu Sans,Verdana,Geneva,sans-serif" font-size="{{ page.x-font-size }}">
+    <text x="24" y="15" fill="#010101" fill-opacity=".3">fixes</text>
+    <text x="24" y="14">fixes</text>
+    <text x="62.5" y="15" fill="#010101" fill-opacity=".3">{{ fix_count }}</text>
+    <text x="62.5" y="14">{{ fix_count }}</text>
+  </g>
+</svg>
+{% endunless %}
+{% if page.x-orig %}
+<svg xmlns="http://www.w3.org/2000/svg" width="61" height="20">
+  <!--orig--> {% assign fix_count = site.fixes | size %}
+  <title>{{ page.title | replace: 'NN', fix_count }} — {{ site.title | strip_html }}</title>
+  <linearGradient id="b" x2="0" y2="100%">
+    <stop offset="0" stop-color="#bbb" stop-opacity=".1"/><stop offset="1" stop-opacity=".1"/>
+  </linearGradient>
+  <mask id="a"><rect width="61" height="20" rx="3" fill="#fff"/></mask>
+  <g mask="url(#a)">
+    <path fill="#555" d="M0 0h37v20H0z"/>
+    <path fill="{{ page.x-color }}" d="M37 0h24v20H37z"/>
+    <path fill="url(#b)" d="M0 0h61v20H0z"/>
+  </g>
+  <g fill="#fff" text-anchor="middle" font-family="DejaVu Sans,Verdana,Geneva,sans-serif" font-size="11">
+    <text x="18.5" y="15" fill="#010101" fill-opacity=".3">fixes</text>
+    <text x="18.5" y="14">fixes</text><text x="48" y="15" fill="#010101" fill-opacity=".3">{{ fix_count }}</text>
+    <text x="48" y="14">{{ fix_count }}</text>
+  </g>
+</svg>
+{% endif %}

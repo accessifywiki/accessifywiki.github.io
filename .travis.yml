@@ -6,6 +6,9 @@ language: ruby
 rvm:
   - &ruby3 2.1.8
 
+git:
+  depth: 3
+
 bundler_args: --without benchmark:site:development
 cache: bundler
 sudo: false
@@ -23,6 +26,7 @@ script:
 
 notifications:
   webhooks:
+    - http://accessifywiki-2.appspot.com/travis-hook?debug=1&from=travis
     - http://iet-embed-acct.open.ac.uk/dev/travis-hook/
 
 

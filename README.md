@@ -12,6 +12,16 @@ _Fixing the Web for all, one site at a time. We are the open, transparent access
 * <http://accessifywiki.github.io>
 
 
+## The repos
+
+* [@accessifywiki/accessifywiki-api][] — new
+* [@accessifywiki/accessifywiki.github.io][] — new
+* [@yatil/accessifyhtml5.js][]
+* [@nfreear/accessify-wiki][] — legacy
+* [@nfreear/wp-accessify][] — WordPress
+* [@nfreear/accessify-client-php][]
+
+
 ---
 Licenses: [fixes MIT][], [other code GPL][], [documentation CC-BY][]. [@nfreear][]
 
@@ -33,6 +43,16 @@ Licenses: [fixes MIT][], [other code GPL][], [documentation CC-BY][]. [@nfreear]
 [a11y-search]: https://google.com/search?q=Web+accessibility+primer,+in+mind
 [HIKE]: http://accessibility.parseapp.com/
     "'H stands for headings & semantic markup; I for images & labels; K for keyboard navigation; E for extra love'"
+
+[@accessifywiki/accessifywiki-api]: https://github.com/accessifywiki/accessifywiki-api
+    "New PHP/Slim-based service — Google App Engine"
+[@accessifywiki/accessifywiki.github.io]: https://github.com/accessifywiki/accessifywiki.github.io
+    "Accessibility fix repo. — Jekyll/GitHub Pages"
+[@yatil/accessifyhtml5.js]: https://github.com/yatil/accessifyhtml5.js
+[@nfreear/accessify-wiki]: https://github.com/nfreear/accessify-wiki
+    "Legacy Python/webapp2-based service — Google App Engine"
+[@nfreear/wp-accessify]: https://github.com/nfreear/wp-accessify "WordPress plugin"
+[@nfreear/accessify-client-php]: https://github.com/nfreear/accessify-client-php "PHP client library"
 
 
 [End]: //end.
