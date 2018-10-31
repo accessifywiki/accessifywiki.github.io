@@ -1,0 +1,39 @@
+{
+  "private": true,
+  "name": "accessifywiki",
+  "version": "1.0.0",
+  "license": "GPL-3.0+",
+  "description": "Fixing the Web for all, one site at a time. | © 2014- Nick + The contributors.",
+  "author": "Nick Freear",
+  "contributors": [],
+  "repository": "https://github.com/accessifywiki/accessifywiki.github.io",
+  "engines": {
+    "node": ">=6.0"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "semistandard": "^12.0.1"
+  },
+  "peerDependencies": {
+    "jquery": "3.3.1",
+    "js-yaml": "3.12.0",
+    "highlight.js": "9.13.1"
+  },
+  "x-peerDependencies": {
+    "jquery": "1.12.0",
+    "js-yaml": "3.5.2",
+    "highlight.js": "9.1.0",
+    "highlight.js--yaml": "9.1.0"
+  },
+  "semistandard": {
+    "ignore": [ "_pages" ]
+  },
+  "scripts": {
+    "start": "bundle exec jekyll serve --drafts --unpublished --future",
+    "fix": "semistandard --fix",
+    "test": "semistandard"
+  },
+  "keywords": [
+    "accessibility"
+  ]
+}

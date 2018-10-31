@@ -24,10 +24,11 @@ script:
   - ruby _bin/validate-json-index.rb
   # http://localhost:4000
 
+after_script: npm test
+
 notifications:
   webhooks:
     - http://accessifywiki-2.appspot.com/travis-hook?debug=1&from=travis
-    - http://iet-embed-acct.open.ac.uk/dev/travis-hook/
+    # - http://iet-embed-acct.open.ac.uk/dev/travis-hook/
 
-
-#End.
+# End.

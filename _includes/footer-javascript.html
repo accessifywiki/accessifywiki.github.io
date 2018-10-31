@@ -5,8 +5,10 @@
 {% for cfg in site.js_config %} data-{{ cfg[0] }}={{ cfg[1] | jsonify }}{% endfor %}
 ></div>
 
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/js-yaml/3.5.2/js-yaml.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.1.0/highlight.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.1.0/languages/yaml.min.js"></script>
+<script> module = {}; </script>
+
+<script src="https://unpkg.com/jquery@3.3.1/dist/jquery.min.js"></script>
+<script src="https://unpkg.com/js-yaml@3.12.0/dist/js-yaml.min.js"></script>
+<script src="https://unpkg.com/highlight.js@9.13.1/lib/highlight.js"></script>
+<script src="https://unpkg.com/highlight.js@9.13.1/lib/languages/yaml.js"></script>
 <script src="/js/main.js"></script>

@@ -1,3 +1,6 @@
+theme: minima
+lang: en-GB
+
 # Site settings
 title: Accessify Wiki<i> beta</i>
 email: nfreear@yahoo.co.uk
@@ -6,13 +9,13 @@ description: > # this means to ignore newlines until "baseurl:"
   Fixing the Web for all, one site at a time.
   We are the open, transparent accessibility middleware.
 
-  License for fixes: <a href="//nfreear.mit-license.org">MIT</a>.
+  License for fixes: <a href="https://nfreear.mit-license.org">MIT</a>.
 
-  Other code: <a href="//gnu.org/licenses/gpl.html">GPL-3.0+</a>.
+  Other code: <a href="https://gnu.org/licenses/gpl.html">GPL-3.0+</a>.
 
-  Documentation: <a href="//creativecommons.org/licenses/by/4.0">Creative Commons Attribution</a>.
+  Documentation: <a href="https://creativecommons.org/licenses/by/4.0">Creative Commons Attribution</a>.
 baseurl: "" # the subpath of your site, e.g. /blog/
-url: "http://accessifywiki.github.io"
+url: "https://accessifywiki.github.io"
 x-was-url: "http://accessifywiki.org"  # the base hostname & protocol for your site
 twitter_username: AccessifyWiki
 github_username:  AccessifyWiki  # Was: nfreear
@@ -70,6 +73,8 @@ exclude:
   - README.md
   - node_modules
   - package.json
+  - Gemfile
+  - Gemfile.lock
 
 include:
   - _pages
