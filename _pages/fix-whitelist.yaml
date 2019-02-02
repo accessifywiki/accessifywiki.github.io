@@ -2,6 +2,7 @@
 layout: null
 permalink: /fix/whitelist.json
 title: Allowed 'safe' HTML5 attributes (RegExp).
+x-nav-class: sr-only
 
 # Source :~ https://github.com/yatil/accessifyhtml5.js/blob/master/accessifyhtml5.js#L23-L24
 #
