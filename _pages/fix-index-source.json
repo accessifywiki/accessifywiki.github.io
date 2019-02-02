@@ -1,13 +1,14 @@
 {
-  "--": "auto-generated",
+  "#": "auto-generated",
   "title": {{ site.title | strip_html | jsonify }},
   "link": {{ site.url | jsonify }},
   "author": {{ site.x-author-url | jsonify }},
   "time": {{ site.time | date_to_xmlschema | jsonify }},
   "generator": {{ jekyll.version | prepend: 'Jekyll v' | jsonify }},
-  "fix_url": {{ '/fix/:ID.html' | prepend: site.url | jsonify }},
+  "fix_url": {{ '/fix/:ID.html' | absolute_url | jsonify }},
   "fix_url_pattern": ":ID",
   "fix_selector": {{ site.ex.fix_selector | jsonify }},
+  "fix_regex": {{ site.ex.fix_regex | jsonify }},
   "fix_count": {{ site.fixes | size }},{% assign count = 0 %}
   "fix_index": {
 {% for fix in site.fixes %}

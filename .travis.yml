@@ -24,6 +24,7 @@ script:
   - ruby _bin/validate-json-index.rb
   # http://localhost:4000
 
+# Currently fails!
 after_script: npm test
 
 notifications:

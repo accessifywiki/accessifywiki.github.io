@@ -173,7 +173,11 @@ a:hover img {
 // https://codepo8.github.io/css-fork-on-github-ribbon/
 
 .github-fork-ribbon {
-  background-color: #070;
+  // background-color: #070;
+
+  &:before {
+    background-color: #070;
+  }
 
   a:visited {
     color: #fff;
