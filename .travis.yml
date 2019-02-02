@@ -24,10 +24,9 @@ before_script:
 script:
   - node -v
   - npm -v
-  - jekyll --version
-  # Was: - bundle exec jekyll build
-  - jekyll build
-  - ruby _bin/validate-json-index.rb
+  - bundle exec jekyll --version
+  - bundle exec jekyll build
+  # - ruby _bin/validate-json-index.rb
   # http://localhost:4000
 
 # Currently fails!
