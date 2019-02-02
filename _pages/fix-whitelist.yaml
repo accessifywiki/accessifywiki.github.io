@@ -1,0 +1,40 @@
+---
+layout: null
+permalink: /fix/whitelist.json
+title: Allowed 'safe' HTML5 attributes (RegExp).
+
+# Source :~ https://github.com/yatil/accessifyhtml5.js/blob/master/accessifyhtml5.js#L23-L24
+#
+# JS :~ ATTR_SECURE = new RegExp("aria-[a-z]+|role|tabindex|title|alt|data-[\\w-]+|lang|"
+#    + "style|maxlength|placeholder|pattern|required|type|target|accesskey|longdesc"),
+
+whitelist_html_attributes:
+  # WAI-ARIA states and properties.
+  - aria-[a-z]+  # RegExp.
+  - role
+  - tabindex
+  # General HTML attributes (HTML 4+).
+  - title
+  - alt
+  - lang
+  - style
+  # Link (anchor) target <a>.
+  - target
+  - 'data-[\w-]+'  # RegExp.
+  # HTML 5 form attributes.
+  - maxlength
+  - placeholder
+  - pattern
+  - required
+  - type
+  # Legacy HTML attributes.
+  - accesskey
+  - longdesc
+
+---
+{
+  "#": "auto-generated",
+  "title": {{ page.title | jsonify }},
+  "time": {{ site.time | date_to_xmlschema | jsonify }},
+  "whitelist_html_attributes": {{ page.whitelist_html_attributes | jsonify }}
+}
